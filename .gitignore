@@ -167,3 +167,6 @@ tags
 
 # ruff
 .ruff_cache
+
+clip-roberta/**
+clip-roberta-finetuned/**
