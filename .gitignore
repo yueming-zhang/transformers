@@ -170,3 +170,4 @@ tags
 
 clip-roberta/**
 clip-roberta-finetuned/**
+*.pickle
