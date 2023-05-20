@@ -208,6 +208,12 @@ class Transform(torch.nn.Module):
             x = self.transforms(x)
         return x
 
+def compute_metrics(eval_preds):
+    # metric = evaluate.load("glue", "mrpc")
+    # logits, labels = eval_preds
+    # predictions = np.argmax(logits, axis=-1)
+    # return metric.compute(predictions=predictions, references=labels)
+    return {"accuracy": 0.0}
 
 def collate_fn(examples):
     pixel_values = torch.stack([example["pixel_values"] for example in examples])
@@ -499,6 +505,7 @@ def main():
         train_dataset=train_dataset if training_args.do_train else None,
         eval_dataset=eval_dataset if training_args.do_eval else None,
         data_collator=collate_fn,
+        compute_metrics=compute_metrics
     )
 
     # 9. Training
